@@ -25,3 +25,17 @@ let p2 = Person(firstName: "", age: 22)
     |> (property(\Person.age)) { _ in 55 }
     |> (property(\Person.firstName)) { _ in "Test user" }
 dump(p2)
+
+let dateFormatter = DateFormatter()
+    |> (property(\.dateFormat)) { _ in "yyyy-MM-dd HH:mm" }
+    |> (property(\.timeZone)) { _ in TimeZone(secondsFromGMT: 0) }
+    |> (property(\.locale)) { _ in Locale(identifier: "en_US_POSIX") }
+
+Date() |> dateFormatter.string
+
+let timeOnlyFormatter =
+    (property(\DateFormatter.dateFormat)) { _ in "HH:mm" }
+    <> (property(\.timeZone)) { _ in TimeZone(secondsFromGMT: 60 * 60 * 2) }
+    <> (property(\.locale)) { _ in Locale(identifier: "en_US_POSIX") }
+
+Date() |> timeOnlyFormatter(DateFormatter()).string
