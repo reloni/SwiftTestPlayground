@@ -12,16 +12,16 @@ func |> <A, B>(a: A, f: @escaping (A) -> B) -> B {
     return f(a)
 }
 
-//precedencegroup ForwardComposition {
-//    associativity: left
-//    higherThan: ForwardApplication
-//}
-//infix operator >>>: ForwardComposition
-//func >>> <A, B, C>(f: @escaping (A) -> B, g: @escaping (B) -> C) -> ((A) -> C) {
-//    return { input in
-//        return g(f(input))
-//    }
-//}
+precedencegroup ForwardComposition {
+    associativity: left
+    higherThan: ForwardApplication
+}
+infix operator >>>: ForwardComposition
+func >>> <A, B, C>(f: @escaping (A) -> B, g: @escaping (B) -> C) -> ((A) -> C) {
+    return { input in
+        return g(f(input))
+    }
+}
 
 precedencegroup SingleComposition {
     associativity: left
@@ -33,6 +33,9 @@ func <> <A>(f: @escaping (A) -> Void, g: @escaping (A) -> Void) -> (A) -> Void {
         f(value)
         g(value)
     }
+}
+func <> <A>(f: @escaping (A) -> A, g: @escaping (A) -> A) -> ((A) -> A) {
+        return f >>> g
 }
 
 func roundedStyle(_ cornerRadius: CGFloat) -> (UIView) -> Void {
@@ -90,6 +93,12 @@ func button(title: String) -> UIButton {
     return button
 }
 
+func label(text: String) -> UILabel {
+    let label = UILabel()
+    label.text = text
+    return label
+}
+
 struct ButtonStyles {
     static let normalButton = baseButtonStyle
         <> roundedStyle(2)
@@ -103,6 +112,8 @@ struct ButtonStyles {
             |> filledViewStyle(.brown)
         
     }
+    
+    static let filledRoundedView = roundedStyle2(4) <> filledViewStyle(.red)
 }
 
 class TestController: UIViewController {
@@ -111,7 +122,6 @@ class TestController: UIViewController {
         |> borderStyle2(color: .red, width: 5)
         |> roundedStyle2(10)
         |> filledViewStyle(.brown)
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -133,6 +143,10 @@ class TestController: UIViewController {
         stackView.addArrangedSubview(first)
         stackView.addArrangedSubview(second)
         stackView.addArrangedSubview(ButtonStyles.testButton(button(title: "Third button")))
+        
+        let lbl = label(text: "Some label")
+        ButtonStyles.filledRoundedView(lbl)
+        stackView.addArrangedSubview(lbl)
     }
     
     func stack() -> UIStackView {

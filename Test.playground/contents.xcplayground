@@ -6,5 +6,6 @@
         <page name='GenericWebService'/>
         <page name='FPR'/>
         <page name='Styling'/>
+        <page name='Curry'/>
     </pages>
 </playground>
