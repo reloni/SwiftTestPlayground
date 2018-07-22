@@ -4,40 +4,6 @@ import Foundation
 import PlaygroundSupport
 import UIKit
 
-precedencegroup ForwardApplication {
-    associativity: left
-}
-infix operator |>: ForwardApplication
-func |> <A, B>(a: A, f: @escaping (A) -> B) -> B {
-    return f(a)
-}
-
-precedencegroup ForwardComposition {
-    associativity: left
-    higherThan: ForwardApplication
-}
-infix operator >>>: ForwardComposition
-func >>> <A, B, C>(f: @escaping (A) -> B, g: @escaping (B) -> C) -> ((A) -> C) {
-    return { input in
-        return g(f(input))
-    }
-}
-
-precedencegroup SingleComposition {
-    associativity: left
-    higherThan: ForwardApplication
-}
-infix operator <>: SingleComposition
-func <> <A>(f: @escaping (A) -> Void, g: @escaping (A) -> Void) -> (A) -> Void {
-    return { value in
-        f(value)
-        g(value)
-    }
-}
-func <> <A>(f: @escaping (A) -> A, g: @escaping (A) -> A) -> ((A) -> A) {
-        return f >>> g
-}
-
 func roundedStyle(_ cornerRadius: CGFloat) -> (UIView) -> Void {
     return { view in
         view.layer.cornerRadius = cornerRadius

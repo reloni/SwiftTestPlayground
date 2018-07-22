@@ -7,5 +7,6 @@
         <page name='FPR'/>
         <page name='Styling'/>
         <page name='Curry'/>
+        <page name='Setters'/>
     </pages>
 </playground>

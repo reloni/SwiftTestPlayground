@@ -15,3 +15,4 @@ func testFunc<B>(_ value: SomeData<Never, B>) {
 
 testFunc(.some2(2))
 //: [Next](@next)
+
