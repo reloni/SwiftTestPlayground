@@ -12,6 +12,11 @@ func property<Object, Value> (_ kp: WritableKeyPath<Object, Value>) -> (@escapin
     }
 }
 
+infix operator .~: ForwardComposition
+public func .~ <Object, Value>(_ kp: WritableKeyPath<Object, Value>, _ v: Value) -> (Object) -> Object {
+    return (property(kp)) { _ in v }
+}
+
 struct Person {
     var firstName: String
     var age: Int
@@ -30,12 +35,16 @@ let dateFormatter = DateFormatter()
     |> (property(\.dateFormat)) { _ in "yyyy-MM-dd HH:mm" }
     |> (property(\.timeZone)) { _ in TimeZone(secondsFromGMT: 0) }
     |> (property(\.locale)) { _ in Locale(identifier: "en_US_POSIX") }
-
 Date() |> dateFormatter.string
+
+let dateOnlyFormatter = DateFormatter()
+    |> \.dateFormat .~ "yyyy-MM-dd"
+    |> \.timeZone .~ TimeZone(secondsFromGMT: 0)
+    |> \.locale .~ Locale(identifier: "en_US_POSIX")
+Date() |> dateOnlyFormatter.string
 
 let timeOnlyFormatter =
     (property(\DateFormatter.dateFormat)) { _ in "HH:mm" }
     <> (property(\.timeZone)) { _ in TimeZone(secondsFromGMT: 60 * 60 * 2) }
     <> (property(\.locale)) { _ in Locale(identifier: "en_US_POSIX") }
-
 Date() |> timeOnlyFormatter(DateFormatter()).string
