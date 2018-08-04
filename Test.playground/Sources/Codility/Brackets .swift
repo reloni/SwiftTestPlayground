@@ -2,7 +2,7 @@ import Foundation
 
 public func brackets (_ S: String) -> Int {
     guard S != "" else { return 0 }
-    var stack = Stack<Character>()
+    let stack = Stack<Character>()
     for i in S.characters {
         switch i {
         case "(": stack.push(")")
@@ -19,15 +19,19 @@ public func brackets (_ S: String) -> Int {
     return stack.size == 0 ? 1 : 0
 }
 
-struct Stack<T> {
+public class Stack<T> {
     var array = [T]()
     
-    mutating func push(_ v: T) {
+    func push(_ v: T) {
         array.append(v)
     }
     
-    mutating func pop() -> T? {
+    func pop() -> T? {
         return array.popLast()
+    }
+    
+    func peek() -> T?{
+        return array.last
     }
     
     var size: Int {
