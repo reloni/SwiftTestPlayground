@@ -8,5 +8,6 @@
         <page name='Styling'/>
         <page name='Curry'/>
         <page name='Setters'/>
+        <page name='Codility'/>
     </pages>
 </playground>

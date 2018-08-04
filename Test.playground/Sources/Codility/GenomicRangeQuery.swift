@@ -1,6 +1,6 @@
 import Foundation
 
-public func solution(_ S : inout String, _ P : inout [Int], _ Q : inout [Int]) -> [Int] {
+public func genomicRangeQuery(_ S : inout String, _ P : inout [Int], _ Q : inout [Int]) -> [Int] {
     // write your code in Swift 3.0 (Linux)
     var suffixes = Array(repeating: Array(repeating: 0, count: S.count + 1), count: 4)
     

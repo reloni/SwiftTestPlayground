@@ -53,3 +53,7 @@ public func flip<A, B, C>(_ f: @escaping (A) -> (B) -> C) -> (B) -> (A) -> C {
 public func zurry<A>(_ f: () -> A) -> A {
     return f()
 }
+
+public func equal<T: Equatable>(_ t: T, _ k: T) -> String {
+    return t == k ? "✅" : "❌"
+}
