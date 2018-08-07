@@ -10,7 +10,7 @@ public func sieveOfSundaram(n: Int) -> [Int] {
         }
     }
     
-    return (1..<n).compactMap { index -> Int? in
+    return [2] + (1..<n).compactMap { index -> Int? in
         if !results[index] {
             return 2 * index + 1
         } else {
