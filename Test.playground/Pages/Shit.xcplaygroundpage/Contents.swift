@@ -4,7 +4,7 @@ import Foundation
 
 //sieveOfSundaram(n: 100)
 //easySieve(n: 10)
-sieveOfSundaram(n: 10)
+//sieveOfSundaram(n: 10)
 
 //maxSlice([5, -7, 3, 5, -2, 4, -1])
 //maxSlice([-7, 3, 5, -2, 4])
@@ -29,11 +29,23 @@ sieveOfSundaram(n: 10)
 //equal(9, maxDoubleSliceSum([10000, 1, -7, 8, -4, -3, 99999]))
 //
 
-equal(1, peaks([1, 2, 3, 2, 2, 3, 1]))
-equal(2, peaks([1, 2, 3, 2, 4, 3]))
-equal(0, peaks([1]))
-equal(0, peaks([1, 2, 3, 4, 5, 6, 7]))
-equal(1, peaks([1, 2, 1]))
-equal(4, peaks([1, 2, 1, 2, 2, 5, 2, 4, 2, 4, 3, 2]))
-equal(1, peaks([1, 2, 1, 2, 2, 5, 2, 4, 2, 4, 3, 2, 1]))
-equal(2, peaks([1, 2, 1, 2, 2, 5, 2, 4, 2, 4, 3, 2, 1, 1]))
+//equal(1, peaks([1, 2, 3, 2, 2, 3, 1]))
+//equal(2, peaks([1, 2, 3, 2, 4, 3]))
+//equal(0, peaks([1]))
+//equal(0, peaks([1, 2, 3, 4, 5, 6, 7]))
+//equal(1, peaks([1, 2, 1]))
+//equal(4, peaks([1, 2, 1, 2, 2, 5, 2, 4, 2, 4, 3, 2]))
+//equal(1, peaks([1, 2, 1, 2, 2, 5, 2, 4, 2, 4, 3, 2, 1]))
+//equal(2, peaks([1, 2, 1, 2, 2, 5, 2, 4, 2, 4, 3, 2, 1, 1]))
+
+
+let root = Node(1)
+root.left = Node(2)
+root.right = Node(3)
+root.left?.left = Node(4)
+root.right?.right = Node(5)
+root.right?.right?.left = Node(6)
+root.right?.right?.left?.right = Node(7)
+
+printBinaryTreeNodesByLevels(root)
+
