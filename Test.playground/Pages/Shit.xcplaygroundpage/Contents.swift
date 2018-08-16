@@ -51,3 +51,4 @@ root.right?.right?.left?.right = Node(7)
 
 printBinaryTreeNodesByLevels(root)
 
+gcd(15, 75)
