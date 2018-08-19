@@ -40,15 +40,17 @@ sieveOfSundaram(n: 100)
 //equal(1, peaks([1, 2, 1, 2, 2, 5, 2, 4, 2, 4, 3, 2, 1]))
 //equal(2, peaks([1, 2, 1, 2, 2, 5, 2, 4, 2, 4, 3, 2, 1, 1]))
 
+//
+//let root = Node(1)
+//root.left = Node(2)
+//root.right = Node(3)
+//root.left?.left = Node(4)
+//root.right?.right = Node(5)
+//root.right?.right?.left = Node(6)
+//root.right?.right?.left?.right = Node(7)
+//
+//printBinaryTreeNodesByLevels(root)
+//
+//gcd(15, 75)
 
-let root = Node(1)
-root.left = Node(2)
-root.right = Node(3)
-root.left?.left = Node(4)
-root.right?.right = Node(5)
-root.right?.right?.left = Node(6)
-root.right?.right?.left?.right = Node(7)
-
-printBinaryTreeNodesByLevels(root)
-
-gcd(15, 75)
+commonPrimeDivisors([15, 10, 3], [75, 30, 5])
