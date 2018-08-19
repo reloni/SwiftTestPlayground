@@ -59,6 +59,12 @@ sieveOfSundaram(n: 100)
 //equal(3, minMissingPositive(&a))
 
 
-flipNumber(14)
-flipNumber(14234)
-flipNumber(1)
+//flipNumber(14)
+//flipNumber(14234)
+//flipNumber(1)
+
+equal(5, binaryGap(1041))
+equal(1, binaryGap(5))
+equal(2, binaryGap(18))
+equal(2, binaryGap(9))
+
