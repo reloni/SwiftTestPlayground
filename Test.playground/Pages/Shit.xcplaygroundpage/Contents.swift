@@ -55,7 +55,10 @@ sieveOfSundaram(n: 100)
 
 //commonPrimeDivisors([15, 10, 3], [75, 30, 5])
 
-var a = [1, 2, -2, 0, -1, 5, 2, 6, 5, -1]
-equal(3, minMissingPositive(&a))
+//var a = [1, 2, -2, 0, -1, 5, 2, 6, 5, -1]
+//equal(3, minMissingPositive(&a))
 
 
+flipNumber(14)
+flipNumber(14234)
+flipNumber(1)
