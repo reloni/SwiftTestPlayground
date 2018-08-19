@@ -63,8 +63,11 @@ sieveOfSundaram(n: 100)
 //flipNumber(14234)
 //flipNumber(1)
 
-equal(5, binaryGap(1041))
-equal(1, binaryGap(5))
-equal(2, binaryGap(18))
-equal(2, binaryGap(9))
+//equal(5, binaryGap(1041))
+//equal(1, binaryGap(5))
+//equal(2, binaryGap(18))
+//equal(2, binaryGap(9))
+//
+
+printField(["XOOXXXOO", "OOOOXOXX", "XXOXXOOO", "OXOOOXXX", "OOXXXXOX", "XOXXXOXO", "OOOXOXOX", "XOXXOXOX"])
 
