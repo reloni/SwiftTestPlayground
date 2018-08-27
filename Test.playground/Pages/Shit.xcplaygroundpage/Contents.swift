@@ -69,5 +69,6 @@ sieveOfSundaram(n: 100)
 //equal(2, binaryGap(9))
 //
 
-printField(["XOOXXXOO", "OOOOXOXX", "XXOXXOOO", "OXOOOXXX", "OOXXXXOX", "XOXXXOXO", "OOOXOXOX", "XOXXOXOX"])
+//printField(["XOOXXXOO", "OOOOXOXX", "XXOXXOOO", "OXOOOXXX", "OOXXXXOX", "XOXXXOXO", "OOOXOXOX", "XOXXOXOX"])
 
+equal(252, lcm([2, 7, 3, 9, 4]))
