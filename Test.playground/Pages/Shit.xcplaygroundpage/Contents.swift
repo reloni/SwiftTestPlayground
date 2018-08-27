@@ -71,4 +71,6 @@ sieveOfSundaram(n: 100)
 
 //printField(["XOOXXXOO", "OOOOXOXX", "XXOXXOOO", "OXOOOXXX", "OOXXXXOX", "XOXXXOXO", "OOOXOXOX", "XOXXOXOX"])
 
-equal(252, lcm([2, 7, 3, 9, 4]))
+//equal(252, lcm([2, 7, 3, 9, 4]))
+equal(3, betweenTwoSets(a: [2, 4], b: [16, 32, 96]))
+
