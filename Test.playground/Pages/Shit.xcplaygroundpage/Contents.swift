@@ -72,5 +72,6 @@ sieveOfSundaram(n: 100)
 //printField(["XOOXXXOO", "OOOOXOXX", "XXOXXOOO", "OXOOOXXX", "OOXXXXOX", "XOXXXOXO", "OOOXOXOX", "XOXXOXOX"])
 
 //equal(252, lcm([2, 7, 3, 9, 4]))
-equal(3, betweenTwoSets(a: [2, 4], b: [16, 32, 96]))
+//equal(3, betweenTwoSets(a: [2, 4], b: [16, 32, 96]))
 
+queensAttack(n: 5, k: 0, r_q: 4, c_q: 3, obstacles: [[5, 5], [4, 2], [2, 3]])
