@@ -182,4 +182,15 @@ let obs =
 
 //queensAttack(n: 100, k: 100, r_q: 48, c_q: 81, obstacles: obs)
 
-equal([6, -1, -1, -1, -1, -1, 12, -1, 12], bfs(n: 10, m: 6, edges: [[3, 1], [10, 1], [10, 1], [3, 1], [1, 8], [5, 2]], s: 3))
+//equal([6, -1, -1, -1, -1, -1, 12, -1, 12], bfs(n: 10, m: 6, edges: [[3, 1], [10, 1], [10, 1], [3, 1], [1, 8], [5, 2]], s: 3))
+
+
+let a = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".map { $0 }
+let s = Set("ABCDEFGHIJKLMNOPQRSTUVWXYZ".map { $0 })
+
+"".lowercased()
+
+
+let f = [Int: Int]()
+
+

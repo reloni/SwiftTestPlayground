@@ -34,6 +34,18 @@ public func <> <A>(f: @escaping (A) -> A, g: @escaping (A) -> A) -> ((A) -> A) {
     return f >>> g
 }
 
+precedencegroup BackwardsComposition {
+    associativity: right
+}
+
+infix operator <<<: BackwardsComposition
+
+public func <<< <A, B, C>(g: @escaping (B) -> C, f: @escaping (A) -> B) -> (A) -> C {
+    return { x in
+        g(f(x))
+    }
+}
+
 public func curry<A, B, C>(_ f: @escaping (A, B) -> C) -> (A) -> (B) -> C {
     return { a in
         return { b in
@@ -52,6 +64,10 @@ public func flip<A, B, C>(_ f: @escaping (A) -> (B) -> C) -> (B) -> (A) -> C {
 
 public func zurry<A>(_ f: () -> A) -> A {
     return f()
+}
+
+public func map<A, B>(_ f: @escaping (A) -> B) -> ([A]) -> [B] {
+    return { xs in xs.map(f) }
 }
 
 public func equal<T: Equatable>(_ t: T, _ k: T) -> String {
