@@ -21,7 +21,7 @@ public func >>> <A, B, C>(f: @escaping (A) -> B, g: @escaping (B) -> C) -> ((A) 
 
 precedencegroup SingleComposition {
     associativity: left
-    higherThan: ForwardApplication
+    higherThan: ForwardApplication, ForwardComposition
 }
 infix operator <>: SingleComposition
 public func <> <A>(f: @escaping (A) -> Void, g: @escaping (A) -> Void) -> (A) -> Void {

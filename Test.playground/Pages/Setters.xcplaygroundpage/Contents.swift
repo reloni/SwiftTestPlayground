@@ -43,8 +43,17 @@ let dateOnlyFormatter = DateFormatter()
     |> \.locale .~ Locale(identifier: "en_US_POSIX")
 Date() |> dateOnlyFormatter.string
 
+let dateOnlyFormatter2: (DateFormatter) -> DateFormatter =
+    (\.dateFormat .~ "yyyy-MM-dd")
+    <> (\.timeZone .~ TimeZone(secondsFromGMT: 0))
+    <> (\.locale .~ Locale(identifier: "en_US_POSIX"))
+
+Date() |> dateOnlyFormatter2(DateFormatter()).string
+
 let timeOnlyFormatter =
     (property(\DateFormatter.dateFormat)) { _ in "HH:mm" }
     <> (property(\.timeZone)) { _ in TimeZone(secondsFromGMT: 60 * 60 * 2) }
     <> (property(\.locale)) { _ in Locale(identifier: "en_US_POSIX") }
 Date() |> timeOnlyFormatter(DateFormatter()).string
+
+
