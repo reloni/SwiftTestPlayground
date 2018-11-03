@@ -46,6 +46,16 @@ public func <<< <A, B, C>(g: @escaping (B) -> C, f: @escaping (A) -> B) -> (A) -
     }
 }
 
+public func get<Root, Value>(_ kp: KeyPath<Root, Value>) -> (Root) -> Value {
+    return { root in
+        root[keyPath: kp]
+    }
+}
+prefix operator ^
+public prefix func ^ <Root, Value>(kp: KeyPath<Root, Value>) -> (Root) -> Value {
+    return get(kp)
+}
+
 public func curry<A, B, C>(_ f: @escaping (A, B) -> C) -> (A) -> (B) -> C {
     return { a in
         return { b in

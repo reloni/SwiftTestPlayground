@@ -9,6 +9,7 @@
         <page name='Curry'/>
         <page name='Functional setters'/>
         <page name='Setters'/>
+        <page name='Getters'/>
         <page name='Codility'/>
     </pages>
 </playground>
