@@ -193,4 +193,5 @@ let s = Set("ABCDEFGHIJKLMNOPQRSTUVWXYZ".map { $0 })
 
 let f = [Int: Int]()
 
+numberOfAnagrams(in: "abba")
 
