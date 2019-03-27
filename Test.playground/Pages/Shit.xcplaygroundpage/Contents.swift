@@ -195,4 +195,6 @@ let f = [Int: Int]()
 
 numberOfAnagrams(in: "abba")
 
-lcsLength(first: [1, 3, 2, 3], second: [1, 2, 4, 3, 5])
+//lcsLength(first: [1, 3, 2, 3], second: [1, 2, 4, 3, 5])
+lcs(first: [1, 3, 2, 3], second: [1, 2, 4, 3, 5])
+
