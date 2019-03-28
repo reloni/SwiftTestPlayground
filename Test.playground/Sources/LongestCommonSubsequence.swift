@@ -1,14 +1,14 @@
 import Foundation
 
-public func lcsLength<Element: Equatable>(first: [Element], second: [Element]) -> Int {    
+public func lcsLength<C: Collection>(first: C, second: C) -> Int where C.Element: Equatable {
     return matrix(first: first, second: second).last?.last ?? -1
 }
 
-public func lcs<Element: Equatable>(first: [Element], second: [Element]) -> [Element] {
-    return backtrack(sequence: first, matrix: matrix(first: first, second: second))
+public func lcs<C: BidirectionalCollection>(first: C, second: C) -> [C.Element] where C.Element: Equatable {
+    return backtrack(collection: first, matrix: matrix(first: first, second: second))
 }
 
-func matrix<Element: Equatable>(first: [Element], second: [Element]) -> [[Int]] {
+func matrix<C: Collection>(first: C, second: C) -> [[Int]] where C.Element: Equatable {
     var matrix = Array(repeating: Array(repeating: 0, count: second.count + 1), count: first.count + 1)
     
     for f in first.enumerated() {
@@ -24,24 +24,24 @@ func matrix<Element: Equatable>(first: [Element], second: [Element]) -> [[Int]] 
     return matrix
 }
 
-func backtrack<Element: Equatable>(sequence: [Element], matrix: [[Int]]) -> [Element] {
+func backtrack<C: BidirectionalCollection>(collection: C, matrix: [[Int]]) -> [C.Element] where C.Element: Equatable {
     var i = matrix.count - 1
     var j = matrix.first!.count - 1
     
-    var sequenceElementIndex = sequence.count
-    var elements = [Element]()
+    var sequenceElementIndex = collection.endIndex
+    var elements = [C.Element]()
     
     while i >= 1 && j >= 1 {
         if matrix[i][j] == matrix[i][j - 1] {
             j -= 1
         } else if matrix[i][j] == matrix[i - 1][j] {
             i -= 1
-            sequenceElementIndex -= 1
+            sequenceElementIndex = collection.index(before: sequenceElementIndex)
         } else {
             i -= 1
             j -= 1
-            sequenceElementIndex -= 1
-            elements.append(sequence[sequenceElementIndex])
+            sequenceElementIndex = collection.index(before: sequenceElementIndex)
+            elements.append(collection[sequenceElementIndex])
         }
     }
     
